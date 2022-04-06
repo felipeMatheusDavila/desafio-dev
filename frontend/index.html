@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>ByCoders Project</title>
+</head>
+<body>
+   
+    <div class="container">
+        <form class="form" id="myForm">
+            <label for="CNAB">Insira o arquivo CNAB:</label>
+            <br>
+            <input type="file" title=" "
+             id="cnabupload" name="cnabupload">
+             <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+
+    <script>
+     const myForm = document.getElementById("myForm");
+     const cnabupload = document.getElementById("cnabupload");
+
+     myForm.addEventListener("submit", e => {
+         e.preventDefault();
+
+
+         const url = "...";
+         const formData = new FormData();
+
+        console.log(cnabupload.files);
+
+         formData.append("cnabupload",cnabupload.files[0]);
+
+         fetch(url, {
+             method: "POST",
+             body: formData
+         }).catch(console.error);
+     })
+    </script>
+
+    
+</body>
+</html>
